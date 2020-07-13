@@ -50,6 +50,7 @@ public class AppController {
 	
 	@RequestMapping("/delete/{id}")
 	public String deleteProduct(@PathVariable(name = "id")long id) {
+		System.out.println("@@@@ inside Delete API");
 	    service.delete(id);
 		return "redirect:/";
 		
