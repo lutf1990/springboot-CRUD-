@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+  <title> Product Manager</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  
+  <style>
+.ffooter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  height: 30px;
+  background-color:#e9ffe7;
+}
+</style>
+</head>
+<body>
+<header style="height: 30px;background-color: maroon;color:white;"></header>
+<div class="container">
+<br>
+
+<img  th:src="@{/images/electroBrands.png}" alt="page"/>
+<img  th:src="@{/images/electroBrands.png}" alt="page"/>
+<img  th:src="@{/images/electroBrands.png}" alt="page"/>
+<br>
+<h2>Product Manager Page</h2>
+<a href="new"><button style="font-size: 22px ;font-weight: bold;color: skyblue"> Create-New-Product</button></a>
+<br><br><br>
+<table class="table table-bordered" border="1" cellpadding="10">
+ <thead>
+ <tr>
+ <th style="font-size: 22px">ID</th>
+  <th style="font-size:22px"> Name </th>
+ <th style="font-size: 22px"> Brand </th>
+ <th style="font-size: 22px"> Made In </th>
+ <th style="font-size: 22px"> Price </th>
+ <th style="font-size: 22px"> Photo </th>
+ <th style="font-size: 22px"> Action </th> 
+ </tr>
+ </thead>
+ <tbody>
+ <tr th:each="product: ${listProducts}">
+ <td style="font-size: 22px" th:text="${product.id}">Id</td>
+  <td style="font-size: 22px" th:text="${product.name}">Name</td>
+   <td style="font-size: 22px" th:text="${product.brand}">Brand</td>
+    <td style="font-size: 22px" th:text="${product.madein}">Made In</td>
+     <td style="font-size: 22px" th:text="${product.price}">Price</td>
+     <td> <img th:src="@{${product.photo}}" width="80" height="100"/></td>
+      <td>
+      <a th:href="@{'/edit/' + ${product.id}}" >Edit</a>
+      &nbsp;/
+      <a th:href="@{'/delete/' + ${product.id}}" >Delete</a>
+      </td>
+ </tr>
+ 
+ </tbody>
+ 
+ </table>
+ 
+</div> 
+</body>
+</html>
